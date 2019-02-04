@@ -26,18 +26,18 @@ with open(csvpath, newline="") as csvfile:
 
 output_file = os.path.join("output.txt")
 with open(output_file, 'w') as textfile:
-    textfile.write("Election Results \n")
-    textfile.write("------------------------- \n")
-    textfile.write(f"Total Votes: {str(votes)}"+"\n")
-    textfile.write("------------------------- \n")
+    textfile.write(f"Election Results \n")
+    textfile.write(f"-------------------------\n")
+    textfile.write(f"Total Votes: {str(votes)}\n")
+    textfile.write(f"-------------------------\n")
     for c in candidates:
         percentage=round((candidates[c]/votes)*100,3)
-        textfile.write(f"{c}: {str(percentage)}% ({str(candidates[c])}) \n")
+        textfile.write(f"{c}: {str(percentage)}% ({str(candidates[c])})\n")
         if candidates[c]>winningvotes:
             winningvotes=candidates[c]
             winner=c
-    textfile.write("-------------------------"+"\n")
+    textfile.write(f"-------------------------\n")
     textfile.write(f"Winner: {winner} \n")
-    textfile.write("-------------------------"+"\n")
+    textfile.write(f"-------------------------")
 with open(output_file, 'r') as textfile:
     print(textfile.read())      
