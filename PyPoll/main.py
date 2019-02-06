@@ -31,8 +31,8 @@ with open(output_file, 'w') as textfile:
     textfile.write(f"Total Votes: {str(votes)}\n")
     textfile.write(f"-------------------------\n")
     for c in candidates:
-        percentage=round((candidates[c]/votes)*100,3)
-        textfile.write(f"{c}: {str(percentage)}% ({str(candidates[c])})\n")
+        percentage=candidates[c]/votes
+        textfile.write(f"{c}: {'{:,.3%}'.format(percentage)} ({str(candidates[c])})\n")
         if candidates[c]>winningvotes:
             winningvotes=candidates[c]
             winner=c
